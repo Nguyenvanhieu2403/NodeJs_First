@@ -9,6 +9,14 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// MiddleWare
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.json());
+
+//CMLHttpRequest, fetch, axios
+
 // HTTP logger
 app.use(morgan("combined"));
 
@@ -25,6 +33,15 @@ app.get("/", (req, res) => {
 
 app.get("/news", (req, res) => {
   res.render("new");
+});
+
+app.get("/search", (req, res) => {
+  res.render("search");
+});
+
+app.post("/search", (req, res) => {
+  console.log(req.body);
+  res.send("");
 });
 
 app.listen(port, () => {

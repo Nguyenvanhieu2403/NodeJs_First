@@ -20,7 +20,7 @@ app.use(express.json());
 //CMLHttpRequest, fetch, axios
 
 // HTTP logger
-                app.use(morgan('combined'));
+            app.use(morgan('combined'));
 
 // Template engine
 app.engine(
